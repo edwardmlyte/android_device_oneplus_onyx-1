@@ -43,8 +43,8 @@ void vendor_load_properties()
     char rf_version[PROP_VALUE_MAX];
     int rc;
 
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || !ISMATCH(platform, ANDROID_TARGET, NULL))
+    rc = property_get("ro.board.platform", platform, NULL);
+    if (!rc || !ISMATCH(platform, ANDROID_TARGET))
         return;
 
     property_get("ro.boot.rf_version", rf_version, NULL);
